@@ -21,3 +21,8 @@
  • Input validation<br>
  • Logging<br>
  • Unit Testing <br>
+ • API documentation support in Swagger <br>
+
+## Swagger Documentation
+Swagger json can be found here: http://localhost:3000/api/swagger.json
+Can be viewed using Swagger Editor
