@@ -1,0 +1,18 @@
+service: my-serverless-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-north-1
+  # environment:
+  #   DATABASE_URL: ${env:DATABASE_URL}
+
+plugins:
+  - serverless-offline
+
+functions:
+  api:
+    handler: src/index.handler
+    timeout: 30
+    events:
+      - httpApi: '*'
