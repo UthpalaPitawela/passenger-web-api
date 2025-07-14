@@ -10,6 +10,13 @@
 #### To run tests
 ``` npm run test```
 
+### Assumptions
+• One flight will operate once per day <br>
+• Booking id format: BK7M4Q (6 characters) <br>
+• Flight number: AB123 - <2 characters><3 numbers> <br>
+• Departure and arrival airports should be 3 characters eg: HEL <br>
+• Passenger id should be SK1234: <2 characters><4 characters>  eg: HEL <br>
+
 ### Endpoints
 #### To get list of passengers in a flight
 ``` http://localhost:3000/api/passengers?flightNumber=AB123&departureDate=2025-08-01 ```
