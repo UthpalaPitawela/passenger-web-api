@@ -2,7 +2,6 @@
 import request from 'supertest';
 import app from '../../src/app';
 import * as passengerService from '../../src/services/passengerService';
-import * as passengerController from '../../src/controllers/passengerController'
 
 jest.mock('../../src/services/passengerService');
 
@@ -36,14 +35,12 @@ describe('Passenger Routes', () => {
       });
 
       expect(res.status).toBe(200);
-      // expect(res.body.success).toBe(true);
-      // expect(res.body.data.length).toBe(1);
     }, 10000);
 
     it('should return 400 if query params are missing', async () => {
-      const res = await request(app).get('/api/passengers'); // missing query params
+      const res = await request(app).get('/api/passengers'); 
 
-      expect(res.status).toBe(400); // assuming your validation returns 400
+      expect(res.status).toBe(400); 
       expect(res.body.success).toBe(false);
     });
   });
@@ -73,9 +70,9 @@ describe('Passenger Routes', () => {
     });
 
     it('should return 400 for invalid passengerId', async () => {
-      const res = await request(app).get('/api/passengers/'); // invalid or missing param
+      const res = await request(app).get('/api/passengers/'); 
 
-      expect(res.status).toBe(400); // or 400 depending on how route is hit
+      expect(res.status).toBe(400); 
       expect(res.body.success).toBe(false);
     });
   });

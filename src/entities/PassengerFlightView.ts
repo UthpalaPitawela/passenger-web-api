@@ -15,7 +15,7 @@ export class PassengerFlightView {
   last_name!: string;
 
   @ViewColumn()
-  booking_id!: number;
+  booking_id!: string;
 
   @PrimaryColumn({type: 'int'})
   flight_id!: number;

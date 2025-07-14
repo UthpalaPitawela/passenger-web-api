@@ -13,6 +13,6 @@ plugins:
 functions:
   api:
     handler: src/index.handler
-    timeout: 30
+    timeout: 90
     events:
       - httpApi: '*'

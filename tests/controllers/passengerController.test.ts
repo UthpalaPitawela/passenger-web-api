@@ -2,7 +2,6 @@ import { NextFunction } from 'express';
 import { findPassengers, findPassengersById } from '../../src/controllers/passengerController';
 import { getPassengersByFlightAndDate, getPassengerById } from '../../src/services/passengerService';
 
-// Mock the service function
 jest.mock('../../src/services/passengerService');
 
 describe('findPassengers controller', () => {
@@ -28,12 +27,11 @@ describe('findPassengers controller', () => {
 
     res = {
       json: jest.fn(),
-      status: jest.fn().mockReturnThis(), // so we can chain .json after .status
+      status: jest.fn().mockReturnThis(), 
     };
 
     next = jest.fn();
 
-    // Reset mock implementation before each test
     (getPassengersByFlightAndDate as jest.Mock).mockReset();
   });
 
@@ -64,11 +62,6 @@ describe('findPassengers controller', () => {
     await findPassengers(req, res, next);
 
     expect(next).toHaveBeenCalledWith(error);
-    // expect(res.status).toHaveBeenCalledWith(500);
-    // expect(res.json).toHaveBeenCalledWith({
-    //   success: false,
-    //   message: 'Failed to fetch passengers',
-    // });
   });
 });
 
@@ -164,7 +157,5 @@ describe('findPassengersById controller', () => {
     await findPassengersById(req , res , next);
 
     expect(next).toHaveBeenCalledWith(error);
-    // expect(res.status).not.toHaveBeenCalled();
-    // expect(res.json).not.toHaveBeenCalled();
   });
 });

@@ -1,9 +1,9 @@
 import 'reflect-metadata';
+import dotenv from 'dotenv';
+dotenv.config();
 import serverless from 'serverless-http';
 import app from './app';
 import { AppDataSource } from './config/dataSource';
-import dotenv from 'dotenv';
-dotenv.config();
 
 let isInitialized = false;
 

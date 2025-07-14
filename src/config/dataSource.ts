@@ -1,4 +1,6 @@
 import 'reflect-metadata';
+import dotenv from 'dotenv';
+dotenv.config();
 import { DataSource } from 'typeorm';
 import { Flight } from '../entities/Flight';
 import { Booking } from '../entities/Booking';

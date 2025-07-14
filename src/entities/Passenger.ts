@@ -20,5 +20,5 @@ export class Passenger {
   booking!: Booking;
 
   @Column({ type: "varchar", length: 6 })
-  booking_id!: number;
+  booking_id!: string;
 }

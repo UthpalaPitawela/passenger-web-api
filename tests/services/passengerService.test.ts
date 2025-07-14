@@ -1,14 +1,14 @@
 import { getPassengerById, getPassengersByFlightAndDate } from '../../src/services/passengerService';
-import { AppDataSource } from '../../src/config/dataSource'; // adjust path as needed
+import { AppDataSource } from '../../src/config/dataSource'; 
 import { Passenger } from '../../src/entities/Passenger';
 
-jest.mock('../../src/config/dataSource'); // ✅ mock the data source
+jest.mock('../../src/config/dataSource'); 
 
 describe('getPassengersByFlightAndDate', () => {
   const mockGetMany = jest.fn();
 
   beforeEach(() => {
-    // Create a mock query builder chain
+   
     const mockQueryBuilder: any = {
       innerJoin: jest.fn().mockReturnThis(),
       where: jest.fn().mockReturnThis(),
@@ -17,7 +17,6 @@ describe('getPassengersByFlightAndDate', () => {
       getMany: mockGetMany,
     };
 
-    // Mock getRepository().createQueryBuilder() to return our mockQueryBuilder
     (AppDataSource.getRepository as jest.Mock).mockReturnValue({
       createQueryBuilder: () => mockQueryBuilder,
     });

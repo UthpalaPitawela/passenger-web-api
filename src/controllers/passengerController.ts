@@ -3,6 +3,7 @@ import { AppDataSource } from '../config/dataSource'
 import { Passenger } from '../entities/Passenger';
 import { getPassengerById, getPassengersByFlightAndDate } from '../services/passengerService';
 import { logHelper } from '../utils/logger';
+import { MappedPassengerByFlightAndDate, PassengerByFlightAndDateDbResponse, PassengerByIdDbResponse, PassengerByIdResponseDto } from '../types/passenger';
 
 const findPassengersLog = logHelper('Controller', 'findPassengers');
 const findPassengerByIdLog = logHelper('Controller', 'findPassengersById');
@@ -13,14 +14,14 @@ export const findPassengers = async (req: Request, res: Response, next: NextFunc
   findPassengersLog.info('Request received', { flightNumber, departureDate });
   try {
 
-    const passengers = await getPassengersByFlightAndDate(
+    const passengers: PassengerByFlightAndDateDbResponse[]   = await getPassengersByFlightAndDate(
       flightNumber as string,
       departureDate as string
     );
 
     findPassengersLog.info('Passengers fetched successfully', { count: passengers.length });
 
-    const mappedPassengers = passengers.map(p => ({
+    const mappedPassengers: MappedPassengerByFlightAndDate[] = passengers.map(p => ({
       passengerId: p.passenger_id,
       firstName: p.first_name,
       lastName: p.last_name,
@@ -39,12 +40,11 @@ export const findPassengersById = async (req: Request, res: Response, next: Next
   const { passengerId } = req.params;
   findPassengerByIdLog.info('Request received', { passengerId });
   try {
-
-    const passenger = await getPassengerById(
+    const passenger: PassengerByIdDbResponse[] = await getPassengerById(
       passengerId as string
     );
 
-    const mappedPassenger = {
+    const mappedPassenger:PassengerByIdResponseDto = {
       passengerId: passenger[0].p_passenger_id,
       firstName: passenger[0].p_first_name,
       lastName: passenger[0].p_last_name,
@@ -66,3 +66,4 @@ export const findPassengersById = async (req: Request, res: Response, next: Next
     next(error);
   }
 };
+
