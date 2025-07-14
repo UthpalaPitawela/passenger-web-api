@@ -3,6 +3,8 @@
 ### Solution Architecture ###
 ![Alt text](assets/images/architecture.png)
 
+### DB Model and DB Design Decisions ###
+
 ## Technical Solution Decisions ##
 | Tool/Technology | Reason |
 |----------|----------|
