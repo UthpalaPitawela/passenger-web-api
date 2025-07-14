@@ -1,5 +1,15 @@
 ## Passenger API ##
 
+### Installation Steps and Commands
+
+#### To install
+```npm install```
+#### To run locally
+``` npm run start:local```
+
+#### To run tests
+``` npm run test```
+
 ### Solution Architecture ###
 ![Alt text](assets/images/architecture.png)
 
