@@ -73,7 +73,7 @@ describe('findPassengersById controller', () => {
 
   const mockPassengerData = [
     {
-      p_passenger_id: 'P1',
+      p_passenger_id: 'SK1234',
       p_first_name: 'John',
       p_last_name: 'Doe',
       p_email: 'john.doe@example.com',
@@ -85,7 +85,7 @@ describe('findPassengersById controller', () => {
       arrival_date: '2025-07-14',
     },
     {
-      p_passenger_id: 'P1',
+      p_passenger_id: 'SK1234',
       p_first_name: 'John',
       p_last_name: 'Doe',
       p_email: 'john.doe@example.com',
@@ -125,7 +125,7 @@ describe('findPassengersById controller', () => {
     expect(res.json).toHaveBeenCalledWith({
       success: true,
       data: {
-        passengerId: 'P1',
+        passengerId: 'SK1234',
         firstName: 'John',
         lastName: 'Doe',
         email: 'john.doe@example.com',
