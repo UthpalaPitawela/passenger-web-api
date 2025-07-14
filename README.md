@@ -4,6 +4,8 @@
 ![Alt text](assets/images/architecture.png)
 
 ### DB Model and DB Design Decisions ###
+![Alt text](assets/images/er.drawio.png)
+
 • Four models defined: flight, passenger, booking, flight-booking<br>
 • Added a join table flight-booking to include foreign key constraints and  preserve referential integrity<br>
 ## Technical Solution Decisions ##
@@ -19,3 +21,8 @@
  • Input validation<br>
  • Logging<br>
  • Unit Testing <br>
+ • API documentation support in Swagger <br>
+
+## Swagger Documentation
+Swagger json can be found here: http://localhost:3000/api/swagger.json
+Can be viewed using Swagger Editor
