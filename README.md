@@ -10,6 +10,12 @@
 #### To run tests
 ``` npm run test```
 
+### Endpoints
+#### To get list of passengers in a flight
+``` http://localhost:3000/api/passengers?flightNumber=AB123&departureDate=2025-08-01 ```
+#### To get passenger by id
+```http://localhost:3000/api/passengers/SK1234```
+
 ### Solution Architecture ###
 ![Alt text](assets/images/architecture.png)
 
