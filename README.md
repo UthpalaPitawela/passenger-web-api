@@ -4,7 +4,8 @@
 ![Alt text](assets/images/architecture.png)
 
 ### DB Model and DB Design Decisions ###
-
+• Four models defined: flight, passenger, booking, flight-booking<br>
+• Added a join table flight-booking to preserve referential integrity<br>
 ## Technical Solution Decisions ##
 | Tool/Technology | Reason |
 |----------|----------|
