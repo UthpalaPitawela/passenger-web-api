@@ -24,5 +24,6 @@
  • API documentation support in Swagger <br>
 
 ## Swagger Documentation
+![Alt text](assets/images/swagger-ui.png)
 Swagger json can be found here: http://localhost:3000/api/swagger.json
 Can be viewed using Swagger Editor
