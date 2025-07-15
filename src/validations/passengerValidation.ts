@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import { isValid, parseISO } from 'date-fns';
+
 export const getPassengerQuerySchema = Joi.object({
   flightNumber: Joi.string()
     .pattern(/^[A-Z]{2}\d{3}$/)

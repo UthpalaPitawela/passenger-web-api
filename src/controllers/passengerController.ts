@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
 import { AppDataSource } from '../config/dataSource'
 import { Passenger } from '../entities/Passenger';
-import { getPassengerById, getPassengersByFlightAndDate } from '../services/passengerService';
+import { getConnectedPassengersByFlightAndDate, getPassengerById, getPassengersByFlightAndDate } from '../services/passengerService';
 import { logHelper } from '../utils/logger';
-import { MappedPassengerByFlightAndDate, PassengerByFlightAndDateDbResponse, PassengerByIdDbResponse, PassengerByIdResponseDto } from '../types/passenger';
+import { ConnectedPassengerByFlightAndDateDbResponse, MappedPassengerByFlightAndDate, PassengerByFlightAndDateDbResponse, PassengerByIdDbResponse, PassengerByIdResponseDto } from '../types/passenger';
 
 const findPassengersLog = logHelper('Controller', 'findPassengers');
 const findPassengerByIdLog = logHelper('Controller', 'findPassengersById');
@@ -81,6 +81,31 @@ export const findPassengers = async (req: Request, res: Response, next: NextFunc
       firstName: p.first_name,
       lastName: p.last_name,
       bookingId: p.booking_id,
+    }));
+
+    res.json({ success: true, data: mappedPassengers });
+  } catch (error) {
+    findPassengersLog.error('Error in findPassengers', { error: error instanceof Error ? error.message : String(error) });
+    next(error);
+  }
+};
+export const findConnectingPassengers = async (req: Request, res: Response, next: NextFunction) => {
+  const { flightNumber, departureDate, isConnected } = req.query;
+  findPassengersLog.info('Request received', { flightNumber, departureDate, isConnected });
+  try {
+
+    const passengers: ConnectedPassengerByFlightAndDateDbResponse[]   = await getConnectedPassengersByFlightAndDate(
+      flightNumber as string,
+      departureDate as string,     
+    );
+
+    findPassengersLog.info('Passengers fetched successfully', { count: passengers.length });
+
+    const mappedPassengers: MappedPassengerByFlightAndDate[] = passengers.map(p => ({
+      passengerId: p.p_passenger_id,
+      firstName: p.p_first_name,
+      lastName: p.p_last_name,
+      bookingId: p.p_booking_id,
     }));
 
     res.json({ success: true, data: mappedPassengers });
