@@ -18,6 +18,13 @@ export interface PassengerByFlightAndDateDbResponse {
   booking_id: string;
 }
 
+export interface ConnectedPassengerByFlightAndDateDbResponse {
+  p_passenger_id: string;
+  p_first_name: string;
+  p_last_name: string;
+  p_booking_id: string;
+}
+
 
 export interface MappedPassengerByFlightAndDate {
   passengerId: string;
