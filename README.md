@@ -22,6 +22,9 @@
 ``` http://localhost:3000/api/passengers?flightNumber=AB123&departureDate=2025-08-01 ```
 #### To get passenger by id
 ```http://localhost:3000/api/passengers/SK1234```
+#### To get connected flights: Interview Exercise
+```http://localhost:3000/api/passengers/connectedFlights?flightNumber=AB123&departureDate=2025-08-01```
+
 
 ### Solution Architecture ###
 ![Alt text](assets/images/architecture.png)
